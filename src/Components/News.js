@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Newsitems from './Newsitems'
 import PropTypes from 'prop-types'
 
@@ -8,7 +8,7 @@ const News = (props) => {
   const [totalResults, settotalResults] = useState(0)
    const [title, settitle] = useState({title : "GENERAL"})
 
-  const updateNews = async () => {
+  const updateNews = useCallback(async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pagesize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -19,7 +19,7 @@ const News = (props) => {
     settitle(props.category)
   
 
-  };
+  });
 
   useEffect(() => {
     updateNews();
