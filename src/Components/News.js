@@ -23,9 +23,9 @@ const News = (props) => {
 
   useEffect(() => {
     updateNews();
-    // eslint-disable-next-line
+    
 
-  }, [updateNews])
+  }, [])
 
   const handlePrevClick = async () => {
     setpage(page - 1)
