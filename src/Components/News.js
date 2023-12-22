@@ -19,13 +19,14 @@ const News = (props) => {
     settitle(props.category)
   
 
-  }
+  };
 
   useEffect(() => {
     updateNews();
+     // eslint-disable-next-line
     
 
-  }, [])
+  }, [updateNews]);
 
   const handlePrevClick = async () => {
     setpage(page - 1)
