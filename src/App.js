@@ -7,7 +7,8 @@ import { Route, Routes,  BrowserRouter } from 'react-router-dom';
 
 const app = () => {
   const pagesize=6;
-  const apiKey = process.env.REACT_APP_NEWS_API;
+  // const apiKey = process.env.REACT_APP_NEWS_API;
+  const apiKey = 'f131505f4a1e414e8258ef817db2abe5';
  
     return (
       <>
