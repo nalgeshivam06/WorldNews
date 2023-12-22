@@ -6,7 +6,7 @@ const News = (props) => {
   const [articles, setarticles] = useState([])
   const [page, setpage] = useState(1)
   const [totalResults, settotalResults] = useState(0)
-  const [title, settitle] = useState({title : "GENERAL"})
+  // const [title, settitle] = useState({title : "GENERAL"})
 
   const updateNews = async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pagesize}`;
@@ -25,7 +25,7 @@ const News = (props) => {
     updateNews();
     // eslint-disable-next-line
 
-  }, [])
+  }, [updateNews])
 
   const handlePrevClick = async () => {
     setpage(page - 1)
