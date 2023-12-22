@@ -8,18 +8,28 @@ const News = (props) => {
   const [totalResults, settotalResults] = useState(0)
    const [title, settitle] = useState({title : "GENERAL"})
 
+  // const updateNews = async () => {
+  //   const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pagesize}`;
+  //   let data = await fetch(url);
+  //   let parsedData = await data.json();
+  //   console.log(parsedData)
+
+  //   setarticles(parsedData.articles)
+  //   settotalResults(parsedData.totalResults)
+  //   settitle(props.category)
+  
+
+  // };
   const updateNews = useCallback(async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pagesize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
-    console.log(parsedData)
+    console.log(parsedData);
 
-    setarticles(parsedData.articles)
-    settotalResults(parsedData.totalResults)
-    settitle(props.category)
-  
-
-  });
+    setarticles(parsedData.articles);
+    settotalResults(parsedData.totalResults);
+    settitle(props.category);
+  }, [props.country, props.category, props.apiKey, page, props.pagesize]);
 
   useEffect(() => {
     updateNews();
